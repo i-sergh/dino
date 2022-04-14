@@ -5,17 +5,24 @@ from random import randint
 from time import sleep
 
 
+class Dott:
+    def __init__(self):
+        pass
+    ##TODO: make a class of collision points
+
 class Rect:
     def __init__ (self,cnv, y, x, H, W=None,\
                   clr=(0,255,0), bclr=(1,1,1)):
-        #self.senter_y = y
-        #self.senter_x = x
+        self.senter_y = y
+        self.senter_x = x
         self.y = y
         self.x = x
         self.H = int( H//2 )
         self.clr = clr
         self.back_clr = bclr
         self.cnv = cnv
+
+        
         
         if W == None:
             self.W = int( H//2 )
@@ -23,13 +30,13 @@ class Rect:
             self.W = int( W//2 )
 
     def draw(self):
-        self.cnv[ self.y - self.W : self.y + self.W,
-                 self.x - self.H : self.x + self.H] = self.clr
+        self.cnv[ self.senter_y - self.W : self.senter_y + self.W,
+                 self.senter_x - self.H : self.senter_x + self.H] = self.clr
     def destroy(self):
-        self.cnv[ self.y - self.W : self.y + self.W,
-                 self.x - self.H : self.x + self.H] = self.back_clr
+        self.cnv[ self.senter_y - self.W : self.senter_y + self.W,
+                 self.senter_x - self.H : self.senter_x + self.H] = self.back_clr
 
-
+    
 
 if __name__ == '__main__':
 
